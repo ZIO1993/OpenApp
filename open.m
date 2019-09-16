@@ -22,7 +22,7 @@ extern CFStringRef SBSApplicationLaunchingErrorString(int error);
 //- (void)openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenExternalURLOptionsKey, id> *)options completionHandler:(void (^)(BOOL success))completion;
 
 int main(int argc, char **argv, char **envp){
-    int ret;
+    //int ret;
 
     if (argc < 2) {
         fprintf(stderr, "Usage: %s com.application.identifier \n", argv[0]);
@@ -79,5 +79,6 @@ int main(int argc, char **argv, char **envp){
 
     //[self openScheme: @string];
 
-    return ret;
+    //return ret;
+    return 0;
 }
