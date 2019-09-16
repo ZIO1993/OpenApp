@@ -72,7 +72,7 @@ int main(int argc, char **argv, char **envp){
     CFRelease(identifier);
 
     */
-    NSString *url = [NSString stringWithUTF8String:argv[2]];
+    NSString *url = [NSString stringWithUTF8String:argv[1]];
     //NSURL *url = [NSURL URLWithString:[string stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
     //openURL(url);
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
