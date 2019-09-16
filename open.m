@@ -12,15 +12,6 @@ extern int SBSLaunchApplicationWithIdentifier(CFStringRef identifier, Boolean su
 extern CFStringRef SBSApplicationLaunchingErrorString(int error);
 #endif
 
-/*
-#ifndef SPRINGBOARDSERVICES_H_
-extern int SBSLaunchApplicationWithIdentifierAndLaunchOptions(CFStringRef identifier, CFDictionaryRef launchOptions, Boolean suspended);
-extern CFStringRef SBSApplicationLaunchingErrorString(int error);
-#endif
-*/
-
-//- (void)openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenExternalURLOptionsKey, id> *)options completionHandler:(void (^)(BOOL success))completion;
-
 int main(int argc, char **argv, char **envp){
     //int ret;
 
@@ -28,7 +19,7 @@ int main(int argc, char **argv, char **envp){
         fprintf(stderr, "Usage: %s com.application.identifier \n", argv[0]);
         return -1;
     }
-    /*
+    
     CFStringRef identifier = CFStringCreateWithCString(kCFAllocatorDefault, argv[1], kCFStringEncodingUTF8);
     assert(identifier != NULL);
     
@@ -40,6 +31,7 @@ int main(int argc, char **argv, char **envp){
         }
 
     }
+    /*
     if (argc==3){
         //key::value;;key2::value2;;
         NSString *argument = [NSString stringWithUTF8String:argv[2]];
@@ -70,41 +62,9 @@ int main(int argc, char **argv, char **envp){
     }
 
     CFRelease(identifier);
-
     */
-    /*
-    NSString *wazeAppURL = @"waze://";
-    NSString *mapsAppURL = @"maps://";
-
-    BOOL canOpenURL = [[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:wazeAppURL]];
-
-    NSString *url = canOpenURL ? wazeAppURL : mapsAppURL;
-    */
-    //[[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"pythonista://"]];
-
-    /*
-    NSString *url = [NSString stringWithUTF8String:argv[1]];
-    //NSURL *url = [NSURL URLWithString:[string stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
-    //openURL(url);
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
-
-    //[self openScheme: @string];
-
-    //return ret;
-    */
-
-    //UIApplication *application = [UIApplication sharedApplication];
-    NSURL *URL = [NSURL URLWithString:@"https://wwww.google.it"];
-    /*[application openURL:URL options:@{} completionHandler:^(BOOL success) {
-        if (success) {
-            NSLog(@"Opened url");
-        }
-    }];*/
-    openURL:[NSURL URLWithString:argv[1]];
-    //[self openScheme:@"pythonista://"];
-    //[self openScheme:@"pythonista3://"];
-    //[self openScheme:@"Pythonista://"];
-    //[self openScheme:@"Pythonista3://"];
-
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"pythonista://"]];
+    [[UIApplication sharedApplication] openUrl:@"pythonista://"]
+    
     return 0;
 }
