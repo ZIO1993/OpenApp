@@ -28,10 +28,10 @@ int main(int argc, char **argv, char **envp)
     }
     if (argc==3){
         //key::value;;key2::value2;;
-        //CFStringRef argument = CFStringCreateWithCString(kCFAllocatorDefault, argv[2], kCFStringEncodingUTF8);
         NSString *argument = [NSString stringWithUTF8String:argv[2]];
-        assert(argument != NULL);
+        //assert(argument != NULL);
         NSArray *listItems = [argument componentSeparatedByString:@";;"];
+
         CFDictionaryRef dict;
         CFStringRef keys[[listItems count]];
         CFStringRef values[[listItems count]];
