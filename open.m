@@ -22,7 +22,7 @@ int main(int argc, char **argv, char **envp){
     
     CFStringRef identifier = CFStringCreateWithCString(kCFAllocatorDefault, argv[1], kCFStringEncodingUTF8);
     assert(identifier != NULL);
-    
+    /*
     if (argc == 2){    
         ret = SBSLaunchApplicationWithIdentifier(identifier, FALSE);
         if (ret != 0) {
@@ -30,7 +30,7 @@ int main(int argc, char **argv, char **envp){
             CFShow(SBSApplicationLaunchingErrorString(ret));
         }
 
-    }
+    }*/
     /*
     if (argc==3){
         //key::value;;key2::value2;;
