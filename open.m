@@ -11,6 +11,11 @@ extern int SBSLaunchApplicationWithIdentifier(CFStringRef identifier, Boolean su
 extern CFStringRef SBSApplicationLaunchingErrorString(int error);
 #endif
 
+#ifndef SPRINGBOARDSERVICES_H_
+extern int SBSLaunchApplicationWithIdentifierAndLaunchOptions(CFStringRef identifier, CFDictionaryRef launchOptions, CF Boolean suspended);
+extern CFStringRef SBSApplicationLaunchingErrorString(int error);
+#endif
+
 int main(int argc, char **argv, char **envp)
 {
     int ret;
