@@ -93,13 +93,14 @@ int main(int argc, char **argv, char **envp){
     //return ret;
     */
 
-    UIApplication *application = [UIApplication sharedApplication];
+    //UIApplication *application = [UIApplication sharedApplication];
     NSURL *URL = [NSURL URLWithString:@"https://wwww.google.it"];
-    [application openURL:URL options:@{} completionHandler:^(BOOL success) {
+    /*[application openURL:URL options:@{} completionHandler:^(BOOL success) {
         if (success) {
             NSLog(@"Opened url");
         }
-    }];
+    }];*/
+    openURL:[NSURL URLWithString:URL];
     //[self openScheme:@"pythonista://"];
     //[self openScheme:@"pythonista3://"];
     //[self openScheme:@"Pythonista://"];
