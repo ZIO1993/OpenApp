@@ -14,15 +14,42 @@ int main(int argc, char **argv, char **envp)
         fprintf(stderr, "Usage: %s com.application.identifier \n", argv[0]);
         return -1;
     }
-
+    
     CFStringRef identifier = CFStringCreateWithCString(kCFAllocatorDefault, argv[1], kCFStringEncodingUTF8);
     assert(identifier != NULL);
+    
+    if (argc == 2){    
+        ret = SBSLaunchApplicationWithIdentifier(identifier, FALSE);
+        if (ret != 0) {
+            fprintf(stderr, "Couldn't open application: %s. Reason: %i, ", argv[1], ret);
+            CFShow(SBSApplicationLaunchingErrorString(ret));
+        }
 
-    ret = SBSLaunchApplicationWithIdentifier(identifier, FALSE);
+    }
+    if (argc==3){
+        //key::value;;key2::value2;;
+        CFStringRef argument = CFStringCreateWithCString(kCFAllocatorDefault, argv[2], kCFStringEncodingUTF8);
+        assert(argument != NULL);
+        NSArray *listItems = [argument componentSeparatedByString:@";;"];
+        CFDictionaryRef dict;
+        CFStringRef keys[[listItems count]];
+        CFStringRef values[[listItems count]];
 
-    if (ret != 0) {
-        fprintf(stderr, "Couldn't open application: %s. Reason: %i, ", argv[1], ret);
-        CFShow(SBSApplicationLaunchingErrorString(ret));
+        for(int i=0; i<[listItems count]; i++){
+            NSArray* kv = [listItems[i] componentSeparatedByString:@"::"];
+            keys[i] = kv[0];
+            value[i] = kv[0];
+        }
+
+        dict = CFDictionaryCreate(NULL, (void **)keys, (void **)values, [listItems count],
+        NULL, NULL);
+        ret = SBSLaunchApplicationWithIdentifierAndLaunchOptions(identifier, dict, FALSE);
+
+        if (ret != 0) {
+            fprintf(stderr, "Couldn't open application: %s. Reason: %i, ", argv[1], ret);
+            CFShow(SBSApplicationLaunchingErrorString(ret));
+        }
+        CFRelease(argument)
     }
 
     CFRelease(identifier);
