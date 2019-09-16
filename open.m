@@ -94,7 +94,7 @@ int main(int argc, char **argv, char **envp){
     */
 
     UIApplication *application = [UIApplication sharedApplication];
-    NSURL *URL = [NSURL URLWithString:@"pythonista3://"];
+    NSURL *URL = [NSURL URLWithString:@"https://wwww.google.it"];
     [application openURL:URL options:@{} completionHandler:^(BOOL success) {
         if (success) {
             NSLog(@"Opened url");
