@@ -64,7 +64,7 @@ int main(int argc, char **argv, char **envp){
     CFRelease(identifier);
     */
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"pythonista://"]];
-    [[UIApplication sharedApplication] openUrl:@"pythonista://"]
-    
+    //[[UIApplication sharedApplication] openUrl:@"pythonista://"]
+    [openUrl:@"pythonista://"]
     return 0;
 }
