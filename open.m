@@ -1,6 +1,7 @@
 #include <CoreFoundation/CoreFoundation.h>
 #include <stdio.h>
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface NSString (SearchExtensions)
 -(NSArray *)searchParts;
