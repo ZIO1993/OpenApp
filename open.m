@@ -44,7 +44,7 @@ int main(int argc, char **argv, char **envp)
         for(int i=0; i<[listItems count]; i++){
             NSArray* kv = [listItems[i] componentsSeparatedByString: @"::"];
             keys[i] = (__bridge CFStringRef)kv[0];
-            value[i] = kv[1];
+            value[i] = (__bridge CFStringRef)kv[1];
         }
 
         dict = CFDictionaryCreate(NULL, (void **)keys, (void **)values, [listItems count],
