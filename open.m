@@ -21,6 +21,22 @@ extern CFStringRef SBSApplicationLaunchingErrorString(int error);
 
 //- (void)openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenExternalURLOptionsKey, id> *)options completionHandler:(void (^)(BOOL success))completion;
 
+- (void)openScheme:(NSString *)scheme {
+  UIApplication *application = [UIApplication sharedApplication];
+  NSURL *URL = [NSURL URLWithString:scheme];
+
+  if ([application respondsToSelector:@selector(openURL:options:completionHandler:)]) {
+    [application openURL:URL options:@{}
+       completionHandler:^(BOOL success) {
+      NSLog(@"Open %@: %d",scheme,success);
+    }];
+  } else {
+    BOOL success = [application openURL:URL];
+    NSLog(@"Open %@: %d",scheme,success);
+  }
+}
+
+
 int main(int argc, char **argv, char **envp){
     //int ret;
 
@@ -80,7 +96,7 @@ int main(int argc, char **argv, char **envp){
 
     NSString *url = canOpenURL ? wazeAppURL : mapsAppURL;
     */
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"pythonista://"]];
+    //[[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"pythonista://"]];
 
     /*
     NSString *url = [NSString stringWithUTF8String:argv[1]];
@@ -92,5 +108,10 @@ int main(int argc, char **argv, char **envp){
 
     //return ret;
     */
+    [self openScheme:@"pythonista://"];
+    [self openScheme:@"pythonista3://"];
+    [self openScheme:@"Pythonista://"];
+    [self openScheme:@"Pythonista3://"];
+
     return 0;
 }
