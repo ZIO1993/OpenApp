@@ -47,7 +47,7 @@ int main(int argc, char **argv, char **envp)
             values[i] = (__bridge CFStringRef)kv[1];
         }
 
-        dict = CFDictionaryCreate(NULL, (void **)keys, (void **)values, [listItems count],
+        dict = CFDictionaryCreate(NULL, (const void **)keys, (const void **)values, [listItems count],
         NULL, NULL);
         ret = SBSLaunchApplicationWithIdentifierAndLaunchOptions(identifier, dict, FALSE);
 
