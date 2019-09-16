@@ -13,7 +13,7 @@ extern CFStringRef SBSApplicationLaunchingErrorString(int error);
 #endif
 
 int main(int argc, char **argv, char **envp){
-    int ret;
+    //int ret;
 
     if (argc < 2) {
         fprintf(stderr, "Usage: %s com.application.identifier \n", argv[0]);
