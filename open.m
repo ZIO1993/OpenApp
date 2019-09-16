@@ -65,6 +65,6 @@ int main(int argc, char **argv, char **envp){
     */
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"pythonista://"]];
     //[[UIApplication sharedApplication] openUrl:@"pythonista://"]
-    [openUrl:@"pythonista://"]
+    //[openUrl:@"pythonista://"]
     return 0;
 }
