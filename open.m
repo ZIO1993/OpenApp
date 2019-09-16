@@ -49,7 +49,7 @@ int main(int argc, char **argv, char **envp)
             fprintf(stderr, "Couldn't open application: %s. Reason: %i, ", argv[1], ret);
             CFShow(SBSApplicationLaunchingErrorString(ret));
         }
-        CFRelease(argument)
+        CFRelease(argument);
     }
 
     CFRelease(identifier);
