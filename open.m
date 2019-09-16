@@ -35,14 +35,14 @@ int main(int argc, char **argv, char **envp)
         //key::value;;key2::value2;;
         NSString *argument = [NSString stringWithUTF8String:argv[2]];
         //assert(argument != NULL);
-        NSArray *listItems = [argument componentSeparatedByString:@";;"];
+        NSArray *listItems = [argument componentsSeparatedByString: @";;"];
 
         CFDictionaryRef dict;
         CFStringRef keys[[listItems count]];
         CFStringRef values[[listItems count]];
 
         for(int i=0; i<[listItems count]; i++){
-            NSArray* kv = [listItems[i] componentSeparatedByString:@"::"];
+            NSArray* kv = [listItems[i] componentsSeparatedByString:@"::"];
             keys[i] = kv[0];
             value[i] = kv[0];
         }
