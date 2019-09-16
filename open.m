@@ -11,20 +11,16 @@ extern int SBSLaunchApplicationWithIdentifier(CFStringRef identifier, Boolean su
 extern CFStringRef SBSApplicationLaunchingErrorString(int error);
 #endif
 
+/*
 #ifndef SPRINGBOARDSERVICES_H_
 extern int SBSLaunchApplicationWithIdentifierAndLaunchOptions(CFStringRef identifier, CFDictionaryRef launchOptions, Boolean suspended);
 extern CFStringRef SBSApplicationLaunchingErrorString(int error);
 #endif
+*/
 
-- (void)openScheme:(NSString *)scheme {
-  UIApplication *application = [UIApplication sharedApplication];
-  NSURL *URL = [NSURL URLWithString:scheme];
-  [application openURL:URL options:@{} completionHandler:^(BOOL success) {
-    if (success) {
-      NSLog(@"Opened %@",scheme);
-    }
-  }];
-}
+- (void)openURL:(NSURL *)url 
+        options:(NSDictionary<UIApplicationOpenExternalURLOptionsKey, id> *)options 
+completionHandler:(void (^)(BOOL success))completion;
 
 
 int main(int argc, char **argv, char **envp)
@@ -80,8 +76,8 @@ int main(int argc, char **argv, char **envp)
 
     */
     NSString *string = [NSString stringWithUTF8String:argv[2]];
-
-    [self openScheme:@"twitter://timeline"];
+    NSURL *url = [NSURL URLWithString:[string stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+    openURL(url)
     //[self openScheme: @string];
 
     return ret;
