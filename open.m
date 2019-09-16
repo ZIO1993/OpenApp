@@ -1,5 +1,6 @@
 #include <CoreFoundation/CoreFoundation.h>
 #include <stdio.h>
+#import <Foundation/Foundation.h>
 
 #ifndef SPRINGBOARDSERVICES_H_
 extern int SBSLaunchApplicationWithIdentifier(CFStringRef identifier, Boolean suspended);
