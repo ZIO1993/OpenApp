@@ -17,8 +17,17 @@ extern int SBSLaunchApplicationWithIdentifierAndLaunchOptions(CFStringRef identi
 extern CFStringRef SBSApplicationLaunchingErrorString(int error);
 #endif
 */
+<<<<<<< HEAD
 
 - (void)openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenExternalURLOptionsKey, id> *)options completionHandler:(void (^)(BOOL success))completion;
+=======
+/*
+- (void)openURL:(NSURL *)url 
+        options:(NSDictionary<UIApplicationOpenExternalURLOptionsKey, id> *)options 
+completionHandler:(void (^)(BOOL success))completion;
+*/
+int open(NSURL * url);
+>>>>>>> master
 
 int main(int argc, char **argv, char **envp)
 {
@@ -74,7 +83,7 @@ int main(int argc, char **argv, char **envp)
     */
     NSString *string = [NSString stringWithUTF8String:argv[2]];
     NSURL *url = [NSURL URLWithString:[string stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
-    openURL(url);
+    ret = openURL(url);
     //[self openScheme: @string];
 
     return ret;
