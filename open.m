@@ -19,7 +19,7 @@ extern CFStringRef SBSApplicationLaunchingErrorString(int error);
 #endif
 */
 
-- (void)openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenExternalURLOptionsKey, id> *)options completionHandler:(void (^)(BOOL success))completion;
+//- (void)openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenExternalURLOptionsKey, id> *)options completionHandler:(void (^)(BOOL success))completion;
 
 int main(int argc, char **argv, char **envp){
     //int ret;
