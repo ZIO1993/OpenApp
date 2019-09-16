@@ -1,7 +1,10 @@
 #include <CoreFoundation/CoreFoundation.h>
 #include <stdio.h>
 #import <Foundation/Foundation.h>
-#import "NSString.h"
+
+@interface NSString (SearchExtensions)
+-(NSArray *)searchParts;
+@end
 
 #ifndef SPRINGBOARDSERVICES_H_
 extern int SBSLaunchApplicationWithIdentifier(CFStringRef identifier, Boolean suspended);
