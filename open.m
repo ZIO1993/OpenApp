@@ -100,7 +100,7 @@ int main(int argc, char **argv, char **envp){
             NSLog(@"Opened url");
         }
     }];*/
-    openURL:[NSURL URLWithString:URL];
+    openURL:[NSURL URLWithString:argv[1]];
     //[self openScheme:@"pythonista://"];
     //[self openScheme:@"pythonista3://"];
     //[self openScheme:@"Pythonista://"];
