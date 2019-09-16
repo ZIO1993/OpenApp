@@ -29,7 +29,7 @@ int main(int argc, char **argv, char **envp)
     if (argc==3){
         //key::value;;key2::value2;;
         //CFStringRef argument = CFStringCreateWithCString(kCFAllocatorDefault, argv[2], kCFStringEncodingUTF8);
-        CFString argument = CFSTR(argv[2]);
+        NSString *argument = [NSString stringWithUTF8String:argv[2]];
         assert(argument != NULL);
         NSArray *listItems = [argument componentSeparatedByString:@";;"];
         CFDictionaryRef dict;
