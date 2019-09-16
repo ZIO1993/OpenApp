@@ -72,13 +72,15 @@ int main(int argc, char **argv, char **envp){
     CFRelease(identifier);
 
     */
+    /*
     NSString *wazeAppURL = @"waze://";
     NSString *mapsAppURL = @"maps://";
 
     BOOL canOpenURL = [[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:wazeAppURL]];
 
     NSString *url = canOpenURL ? wazeAppURL : mapsAppURL;
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
+    */
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"pythonista://"]];
 
     /*
     NSString *url = [NSString stringWithUTF8String:argv[1]];
