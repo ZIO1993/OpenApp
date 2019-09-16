@@ -42,9 +42,9 @@ int main(int argc, char **argv, char **envp)
         CFStringRef values[[listItems count]];
 
         for(int i=0; i<[listItems count]; i++){
-            NSArray* kv = [listItems[i] componentsSeparatedByString:@"::"];
-            keys[i] = kv[0];
-            value[i] = kv[0];
+            NSArray* kv = [listItems[i] componentsSeparatedByString: @"::"];
+            keys[i] = (__bridge CFStringRef)kv[0];
+            value[i] = kv[1];
         }
 
         dict = CFDictionaryCreate(NULL, (void **)keys, (void **)values, [listItems count],
