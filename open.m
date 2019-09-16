@@ -21,8 +21,7 @@ extern CFStringRef SBSApplicationLaunchingErrorString(int error);
 
 - (void)openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenExternalURLOptionsKey, id> *)options completionHandler:(void (^)(BOOL success))completion;
 
-int main(int argc, char **argv, char **envp)
-{
+int main(int argc, char **argv, char **envp){
     int ret;
 
     if (argc < 2) {
@@ -73,9 +72,11 @@ int main(int argc, char **argv, char **envp)
     CFRelease(identifier);
 
     */
-    NSString *string = [NSString stringWithUTF8String:argv[2]];
-    NSURL *url = [NSURL URLWithString:[string stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
-    openURL(url);
+    NSString *url = [NSString stringWithUTF8String:argv[2]];
+    //NSURL *url = [NSURL URLWithString:[string stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+    //openURL(url);
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
+
     //[self openScheme: @string];
 
     return ret;
