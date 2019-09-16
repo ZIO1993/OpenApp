@@ -16,6 +16,17 @@ extern int SBSLaunchApplicationWithIdentifierAndLaunchOptions(CFStringRef identi
 extern CFStringRef SBSApplicationLaunchingErrorString(int error);
 #endif
 
+- (void)openScheme:(NSString *)scheme {
+  UIApplication *application = [UIApplication sharedApplication];
+  NSURL *URL = [NSURL URLWithString:scheme];
+  [application openURL:URL options:@{} completionHandler:^(BOOL success) {
+    if (success) {
+      NSLog(@"Opened %@",scheme);
+    }
+  }];
+}
+
+
 int main(int argc, char **argv, char **envp)
 {
     int ret;
@@ -24,7 +35,7 @@ int main(int argc, char **argv, char **envp)
         fprintf(stderr, "Usage: %s com.application.identifier \n", argv[0]);
         return -1;
     }
-    
+    /*
     CFStringRef identifier = CFStringCreateWithCString(kCFAllocatorDefault, argv[1], kCFStringEncodingUTF8);
     assert(identifier != NULL);
     
@@ -42,6 +53,8 @@ int main(int argc, char **argv, char **envp)
         //assert(argument != NULL);
         NSArray *listItems = [argument componentsSeparatedByString: @";;"];
 
+
+        
         CFDictionaryRef dict;
         CFStringRef keys[[listItems count]];
         CFStringRef values[[listItems count]];
@@ -64,6 +77,12 @@ int main(int argc, char **argv, char **envp)
     }
 
     CFRelease(identifier);
+
+    */
+    NSString *string = [NSString stringWithUTF8String:argv[2]];
+
+    [self openScheme:@"twitter://timeline"];
+    //[self openScheme: @string];
 
     return ret;
 }
