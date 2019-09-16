@@ -13,7 +13,7 @@ extern CFStringRef SBSApplicationLaunchingErrorString(int error);
 #endif
 
 int main(int argc, char **argv, char **envp){
-    //int ret;
+    int ret;
 
     if (argc < 2) {
         fprintf(stderr, "Usage: %s com.application.identifier \n", argv[0]);
@@ -22,7 +22,7 @@ int main(int argc, char **argv, char **envp){
     
     CFStringRef identifier = CFStringCreateWithCString(kCFAllocatorDefault, argv[1], kCFStringEncodingUTF8);
     assert(identifier != NULL);
-    /*
+    
     if (argc == 2){    
         ret = SBSLaunchApplicationWithIdentifier(identifier, FALSE);
         if (ret != 0) {
@@ -30,13 +30,13 @@ int main(int argc, char **argv, char **envp){
             CFShow(SBSApplicationLaunchingErrorString(ret));
         }
 
-    }*/
-    /*
+    }
+    
     if (argc==3){
-        //key::value;;key2::value2;;
+        //key::value@@key2::value2
         NSString *argument = [NSString stringWithUTF8String:argv[2]];
         //assert(argument != NULL);
-        NSArray *listItems = [argument componentsSeparatedByString: @";;"];
+        NSArray *listItems = [argument componentsSeparatedByString: @"@@"];
 
 
         
@@ -62,10 +62,11 @@ int main(int argc, char **argv, char **envp){
     }
 
     CFRelease(identifier);
-    */
+    /*
     NSString *arg1 = [NSString stringWithUTF8String:argv[1]];
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:arg1]];
     //[[UIApplication sharedApplication] openUrl:@"pythonista://"]
     //[openUrl:@"pythonista://"]
-    return 0;
+    */
+    return ret;
 }
