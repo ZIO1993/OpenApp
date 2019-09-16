@@ -7,10 +7,10 @@
 -(NSArray *)searchParts;
 @end
 
-#ifndef SPRINGBOARDSERVICES_H_
+//#ifndef SPRINGBOARDSERVICES_H_
 extern int SBSLaunchApplicationWithIdentifier(CFStringRef identifier, Boolean suspended);
 extern CFStringRef SBSApplicationLaunchingErrorString(int error);
-#endif
+//#endif
 
 int main(int argc, char **argv, char **envp){
     int ret;
